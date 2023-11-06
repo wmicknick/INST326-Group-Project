@@ -70,7 +70,7 @@ class BudgetCalculator:
 
         return expense_pie_chart, greatest_expense
 
-    def calculate_hourly_wage(self):
+    def hourly_wage(self):
         '''Gets the hourly wage of the user based on the quotient of income by hours worked per week.
 
             Returns:
@@ -79,7 +79,7 @@ class BudgetCalculator:
         hourly_wage = self.income / self.hours_worked # Get the hourly wage of the user
         return hourly_wage
 
-    def calculate_daily_budget(self):
+    def daily_budget(self):
         '''If the user is not currently spending more on expenses than they are making, this method calculates
             a daily allowance budget based on the user's income and total expenses.
 
@@ -93,7 +93,7 @@ class BudgetCalculator:
             daily_allowance = (monthly_allowance / 30)
         return daily_allowance
 
-    def calculate_allowance_goal_difference(self, current_allowance, budget_goal):
+    def allowance_goal_difference(self, current_allowance, budget_goal):
         '''Gets the difference between the user's current allowance and their entered goal allowance.
 
             Args:
@@ -180,9 +180,9 @@ def main(income, hours, rent, car, gas, food, subscriptions, savings, goal):
 
     # Call methods to input data, calculate budget, and display results
     expense_pie_chart, greatest_expense = budget.expense_proportions()
-    hourly_wage = budget.calculate_hourly_wage()
-    daily_allowance = budget.calculate_daily_budget()
-    budget_deficit = budget.calculate_allowance_goal_difference(daily_allowance, goal)
+    hourly_wage = budget.hourly_wage()
+    daily_allowance = budget.daily_budget()
+    budget_deficit = budget.allowance_goal_difference(daily_allowance, goal)
     extra_hours, spending_reduction_plan = budget.suggest_actions(budget_deficit, greatest_expense, hourly_wage)
     budget.display_summary(expense_pie_chart, greatest_expense, daily_allowance, budget_deficit, extra_hours, spending_reduction_plan, goal)
 
