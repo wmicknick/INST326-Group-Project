@@ -1,7 +1,7 @@
 import unittest
 from budget import BudgetCalculator
 
-class TestBudgetCalculator(unittest.TestCase):
+class Test(unittest.TestCase):
     def test_expense_proportions(self):
         budget = BudgetCalculator(income=5000, hours=160, rent=1000, car=500, gas=200, food=500, subscriptions=100, savings=1000, goal=30)
         expense_pie_chart, greatest_expense = budget.expense_proportions()
