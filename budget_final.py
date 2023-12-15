@@ -185,7 +185,7 @@ class BudgetCalculator:
         gap_to_goal_abs = abs(gap_to_goal)
 
         #Trimming extra decimal places from the args
-        gap_to_goal_abs_trim = f"{gap_to_goal_abs}"
+        gap_to_goal_abs_trim = f"{gap_to_goal_abs:.2f}"
         if type(allowance) != str:
             allowance_trim = f"{allowance:.2f}"
         free_money_trim = round(free_money_proportion)
